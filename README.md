@@ -19,5 +19,5 @@ Usage
 
     ./heic2jpeg.py original.heic
     
-It will save the picture in the same directory, with the same name but as a JPEG and the ending `.jpeg`.
+It will save the picture in the same directory, with the same name but as a JPEG and the ending `.jpg`.
 
