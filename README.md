@@ -10,8 +10,9 @@ This script tries to copy as much metadata as necessary to avoid all the manual 
 Installation
 ------------
 
-pipenv install
-pipenv shell
+    git clone https://github.com/jeena/heic2jpeg.git
+    pipenv install
+    pipenv shell
 
 Usage
 -----
