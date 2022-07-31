@@ -21,3 +21,7 @@ Usage
     
 It will save the picture in the same directory, with the same name but as a JPEG and the ending `.jpg`.
 
+License
+-------
+
+GPL v3
