@@ -21,6 +21,19 @@ Usage
     
 It will save the picture in the same directory, with the same name but as a JPEG and the ending `.jpg`.
 
+    ./heic2date.py original.heic
+
+This will get the date out of your .HEIC EXIF data and rename the file into IMG_YYYYMMDD_HHMMSS.heic
+
+    ./mov2date.py original.mov
+
+This will get the date out of your .mov file and rename the file into IMG_YYYYMMDD_HHMMSS.mov
+
+You can automate it to do it for every specific file in a directory like this:
+
+    for i in `ls *.HEIC -1 | grep -v 2022`; do ~/Projects/heic2jpeg/heic2date.py $i; done
+
+
 License
 -------
 
