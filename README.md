@@ -11,6 +11,7 @@ Installation
 ------------
 
     git clone https://github.com/jeena/heic2jpeg.git
+    sudo pacman -S perl-image-exiftool
     pipenv install
     pipenv shell
 
@@ -31,8 +32,7 @@ This will get the date out of your .mov file and rename the file into IMG_YYYYMM
 
 You can automate it to do it for every specific file in a directory like this:
 
-    for i in `ls *.HEIC -1 | grep -v 2022`; do ~/Projects/heic2jpeg/heic2date.py $i; done
-
+    find . -iname "*.HEIC" -exec ~/Projects/heic2jpeg/heic2date.py {} \;
 
 License
 -------

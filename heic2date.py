@@ -3,11 +3,9 @@
 import sys
 import os
 import datetime
-#import exifread
 import io
 import pyheif
 import piexif
-#from PIL import Image
 from pathlib import Path
 
 class Heic2Date:
@@ -22,8 +20,11 @@ class Heic2Date:
 				return piexif.load(metadata['data'])
 
 	def date(self):
-		dto = self.exif()["Exif"][piexif.ExifIFD.DateTimeOriginal].decode('utf-8')
-		return datetime.datetime.strptime(dto, "%Y:%m:%d %H:%M:%S")
+                exif = self.exif()["Exif"]
+                date_time_original = exif[piexif.ExifIFD.DateTimeOriginal].decode('utf-8')
+                offset_time_original = exif[piexif.ExifIFD.OffsetTimeOriginal].decode('utf-8')
+                dto = date_time_original + offset_time_original
+                return datetime.datetime.strptime(dto, "%Y:%m:%d %H:%M:%S%z")
 			
 	def rename(self, prefix='', postfix=''):
 		with open(self.path, 'rb') as image:
