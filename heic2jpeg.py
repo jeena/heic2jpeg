@@ -36,12 +36,15 @@ class Heic2Jpeg:
 	def safe(self, quality=85):
 		if self.img == None:
 			self.decodeImage()
+			
+		path = self.path.with_suffix('.jpg')
 
 		self.img.save(
-			self.path.with_suffix('.jpg'),
+			path,
 			format="JPEG",
 			quality=quality,
 			exif=self.getExif())
+		return path.__str__()
 
 if __name__ == "__main__":
 	if len(sys.argv) != 2:
@@ -49,4 +52,4 @@ if __name__ == "__main__":
 	else:
 		img_path = sys.argv[1]
 		h2j = Heic2Jpeg(img_path)
-		h2j.safe()
+		print(h2j.safe())
