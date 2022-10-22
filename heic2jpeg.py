@@ -28,7 +28,7 @@ class Heic2Jpeg:
 				# pyheif.read_heif() rotates the picture
 				# we need to remove the Orientation from EXIF
 				exif_dict = piexif.load(metadata['data'])
-				if exif_dict["0th"] and exif_dict["0th"][piexif.ImageIFD.Orientation]:
+				if exif_dict["0th"] and exif_dict["0th"].get(piexif.ImageIFD.Orientation):
 					exif_dict["0th"][piexif.ImageIFD.Orientation] = 1
 					
 				return piexif.dump(exif_dict)
